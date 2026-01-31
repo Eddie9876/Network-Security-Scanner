@@ -164,15 +164,15 @@ class NetworkScanner:
                 vulnerabilities.append({
                     'Port': port,
                     'Issue': 'Personal files and info are seen',
-                    'Severity': 'HIGH',
+                    'Severity': 'MEDIUM',
                     'Recommendation': 'Search up the website, and see if there is contenct wring in it(error messages, etc.)'
                 })
             if port == 1433 and result['State'] == 'open':
                 vulnerabilities.append({
                     'Port': port,
-                    'Issue': '',
+                    'Issue': 'MSSQL data leaked',
                     'Severity': 'HIGH',
-                    'Recommendation': 'Search up the website, and see if there is contenct wring in it(error messages, etc.)'
+                    'Recommendation': 'Using terminal check what data got leaked'
                 })
         
         if vulnerabilities:
