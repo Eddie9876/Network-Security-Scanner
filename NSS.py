@@ -165,7 +165,7 @@ class NetworkScanner:
                     'Port': port,
                     'Issue': 'Personal files and info are seen',
                     'Severity': 'MEDIUM',
-                    'Recommendation': 'Search up the website, and see if there is contenct wring in it(error messages, etc.)'
+                    'Recommendation': 'Search up the website, and see if there is contenct wrong in it(error messages, etc.)'
                 })
             if port == 1433 and result['State'] == 'open':
                 vulnerabilities.append({
