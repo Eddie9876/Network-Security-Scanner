@@ -174,6 +174,13 @@ class NetworkScanner:
                     'Severity': 'HIGH',
                     'Recommendation': 'Using terminal check what data got leaked'
                 })
+            if port == 3389 and result['State'] == 'open':
+                vulnerabilities.append({
+                    'Port': port,
+                    'Issue': 'Someone is looking or taking control of your desktop',
+                    'Severity': 'HIGH',
+                    'Recommendation': 'Use a VPN and block port 3389 in order to block future and current RDP connections'
+                })
         
         if vulnerabilities:
             print(f"{Fore.RED}[!] Found {len(vulnerabilities)} potential security issues:\n")
@@ -254,7 +261,7 @@ def main():
     # Generate report
     scanner.generate_report()
     
-    # TODO: Save to file option
+     
     save = input(f"\n{Fore.YELLOW}Save report to file? (y/n): {Style.RESET_ALL}")
     if save.lower() == 'y':
         results = scanner.generate_report()  # Now this returns data
