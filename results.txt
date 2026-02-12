@@ -1,3 +1,27 @@
 ===== Network Scan Results =====
 
-Total open ports: 0
+Port: 22
+  State: open
+  Service: ssh
+  Version: 
+  Reason: syn-ack
+
+Port: 25
+  State: open
+  Service: smtp
+  Version: 
+  Reason: syn-ack
+
+Port: 70
+  State: closed
+  Service: gopher
+  Version: 
+  Reason: conn-refused
+
+Port: 80
+  State: open
+  Service: http
+  Version: 
+  Reason: syn-ack
+
+Total open ports: 4
