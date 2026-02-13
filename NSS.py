@@ -163,25 +163,17 @@ class NetworkScanner:
             if port == 80 and result['State'] == 'open':
                 vulnerabilities.append({
                     'Port': port,
-                    'Issue': 'Personal files and info are seen',
+                    'Issue': 'unencrypted web traffic detected',
                     'Severity': 'MEDIUM',
-                    'Recommendation': 'Search up the website, and see if there is contenct wrong in it(error messages, etc.)'
+                    'Recommendation': 'Use HTTPS instead of HTTP'
                 })
             if port == 1433 and result['State'] == 'open':
                 vulnerabilities.append({
                     'Port': port,
                     'Issue': 'MSSQL data leaked',
                     'Severity': 'HIGH',
-                    'Recommendation': 'Using terminal check what data got leaked'
+                    'Recommendation': 'Use the terminal check what data got leaked'
                 })
-            if port == 3389 and result['State'] == 'open':
-                vulnerabilities.append({
-                    'Port': port,
-                    'Issue': 'Someone is looking or taking control of your desktop',
-                    'Severity': 'HIGH',
-                    'Recommendation': 'Use a VPN and block port 3389 in order to block future and current RDP connections'
-                })
-        
         if vulnerabilities:
             print(f"{Fore.RED}[!] Found {len(vulnerabilities)} potential security issues:\n")
             for vuln in vulnerabilities:
